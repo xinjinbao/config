@@ -1,0 +1,37 @@
+################################
+          #公共配置文件
+################################
+eureka:
+  instance:
+    hostname: eureka-server
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://user:${EUREKA_SERVER_PASSWORD:eureka}@eureka-server:8061/eureka/
+########################
+#设置 thread 隔离策略的超时时间
+#该超时时间需大于 ribbon 的超时时间，否则不会触发 retry
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+#########################
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+#########################
+spring:
+  rabbitmq:
+    host: rabbitmq
+#########################
+authserver:
+  hostname: auth-server
+  port: 8063
+  contextPath: /uaa
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://${authserver.hostname}:${authserver.port}${authserver.contextPath}
