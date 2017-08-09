@@ -10,12 +10,12 @@ eureka:
 security:
   user:
     name: user
-    password: ${ARTICAL_SERVER_PASSWORD:artical}
+    password: ${ARTICAL_SERVICE_PASSWORD:artical}
   oauth2:
     client:
       client-id: artical-server
       client-secret: ${security.user.password}
-      access-token-uri: http://${auth-server.hostname}:${auth-server.port}${auth-server.context-path}/oauth/token
+      access-token-uri: http://${auth-service.hostname}:${auth-service.port}${auth-service.context-path}/oauth/token
       grant-type: client_credentials
       scope: server
 #1. authorization_code  授权码模式（先登录获取 code， 再获取 token）
@@ -23,5 +23,3 @@ security:
 #3. client_credentials  客户端模式（无用户，客户端向 auth 服务端发请求）
 #4. implicit            简化模式（在 redirect_uri 中传递 token, 客户端运行浏览器中）
 #5. refresh_token       刷新 access_token
-#_____________
-site: ABCN.in

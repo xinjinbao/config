@@ -29,7 +29,9 @@ spring:
   rabbitmq:
     host: rabbitmq
 #________Auth-Server________
-auth-server:
-  hostname: auth-server
+auth-service:
+  hostname: auth-service
   port: 8063
   context-path: /
+#________________________
+copyright: ABCN.in
