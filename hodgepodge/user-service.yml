@@ -10,7 +10,7 @@ eureka:
 security:
   user:
     name: user
-    password: ${USER_SERVICE_PASSWORD:password}
+    password: ${USER_SERVICE_PASSWORD:user}
   oauth2:
     client:
       client-id: user-service
