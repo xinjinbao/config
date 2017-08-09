@@ -1,0 +1,27 @@
+server:
+  port: 8064
+#_____________
+eureka:
+  instance:
+    metadata-map:
+      user.name: ${security.user.name}
+      user.password: ${security.user.password}
+#_____________
+security:
+  user:
+    name: user
+    password: ${ARTICAL_SERVER_PASSWORD:artical}
+  oauth2:
+    client:
+      client-id: artical-server
+      client-secret: ${security.user.password}
+      access-token-uri: http://${auth-server.hostname}:${auth-server.port}${auth-server.context-path}/oauth/token
+      grant-type: client_credentials
+      scope: server
+#1. authorization_code  授权码模式（先登录获取 code， 再获取 token）
+#2. password            密码模式（根据用户名、密码获取 token）
+#3. client_credentials  客户端模式（无用户，客户端向 auth 服务端发请求）
+#4. implicit            简化模式（在 redirect_uri 中传递 token, 客户端运行浏览器中）
+#5. refresh_token       刷新 access_token
+#_____________
+site: ABCN.in
