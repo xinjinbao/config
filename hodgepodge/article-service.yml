@@ -10,10 +10,10 @@ eureka:
 security:
   user:
     name: user
-    password: ${ARTICAL_SERVICE_PASSWORD:artical}
+    password: ${ARTICLE_SERVICE_PASSWORD:article}
   oauth2:
     client:
-      client-id: artical-server
+      client-id: article-server
       client-secret: ${security.user.password}
       access-token-uri: http://${auth-service.hostname}:${auth-service.port}${auth-service.context-path}/oauth/token
       grant-type: client_credentials
