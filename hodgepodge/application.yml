@@ -33,5 +33,9 @@ auth-service:
   hostname: auth-service
   port: 8063
   context-path: /
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://${auth-service.hostname}:${auth-service.port}${auth-service.context-path}
 #________________________
 copyright: ABCN.in
