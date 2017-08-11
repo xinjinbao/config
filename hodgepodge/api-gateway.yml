@@ -1,0 +1,15 @@
+server:
+  port: 8066
+zuul:
+  ignored-services: '*'
+  routes:
+    auth-service:
+      path: /uaa/**
+      stripPrefix: false
+      sensitiveHeaders:
+    user-service:
+      path: /user/**
+      sensitiveHeaders:
+    article-service:
+      path: /article/**
+      sensitiveHeaders:
