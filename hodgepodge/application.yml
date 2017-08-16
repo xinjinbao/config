@@ -32,7 +32,7 @@ spring:
 auth-service:
   hostname: auth-service
   port: 8063
-  context-path: /
+  context-path: /uaa
 security:
   oauth2:
     resource:
