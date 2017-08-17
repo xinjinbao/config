@@ -7,3 +7,9 @@ zuul:
       path: /uaa/**
       stripPrefix: false
       sensitiveHeaders:
+    user-service:
+      path: /user/**
+      sensitiveHeaders:
+    article-service:
+      path: /article/**
+      sensitiveHeaders:
