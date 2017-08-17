@@ -36,6 +36,6 @@ auth-service:
 security:
   oauth2:
     resource:
-      user-info-uri: http://${auth-service.hostname}:${auth-service.port}${auth-service.context-path}
+      user-info-uri: http://${auth-service.hostname}:${auth-service.port}${auth-service.context-path}/current
 #________________________
 copyright: ABCN.in
