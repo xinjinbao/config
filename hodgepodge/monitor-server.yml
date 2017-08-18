@@ -1,0 +1,22 @@
+spring:
+  boot:
+    admin:
+      routes:
+        endpoints: env,metrics,trace,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
+      turbine:
+        clusters: default
+        location: http://monitor-server:${turbine.stream.port}
+server:
+  port: 8066
+turbine:
+  stream:
+    port: 8067
+security:
+  user:
+    name: user
+    password: ${MONITOR_SERVER_PASSWORD:monitor}
+eureka:
+  instance:
+    metadata-map:
+      user.name: ${security.user.name}
+      user.password: ${security.user.password}
