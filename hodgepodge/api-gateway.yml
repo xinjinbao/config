@@ -3,7 +3,7 @@ server:
 zuul:
   ignored-services: '*'
   routes:
-    auth-service:
+    auth-server:
       path: /uaa/**
       stripPrefix: false
       sensitiveHeaders:
@@ -13,3 +13,7 @@ zuul:
     article-service:
       path: /article/**
       sensitiveHeaders:
+    monitor-server:
+      path: /monitor/**
+    tracker-server:
+      path: /tracker/**

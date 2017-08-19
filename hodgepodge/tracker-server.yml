@@ -1,0 +1,9 @@
+spring:
+  rabbitmq:
+    host: rabbitmq
+server:
+  port: 8068
+security:
+  user:
+    name: user
+    password: ${TRACKER_SERVER_PASSWORD:tracker}
