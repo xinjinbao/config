@@ -5,7 +5,7 @@ zuul:
   routes:
     auth-server:
       path: /uaa/**
-      stripPrefix: false
+      stripPrefix: true
       sensitiveHeaders:
     user-service:
       path: /user/**
