@@ -13,7 +13,7 @@ zuul:
     article-service:
       path: /article/**
       sensitiveHeaders:
-    monitor-server:
-      path: /monitor/**
-    tracker-server:
-      path: /tracker/**
+#    monitor-server:
+#      path: /monitor/**
+#    tracker-server:
+#      path: /tracker/**
