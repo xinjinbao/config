@@ -4,13 +4,28 @@ server:
 ##########################################
 spring:
   datasource:
-    #url: jdbc:h2:mem:hp_auth
-    #driver-class-name: org.h2.Driver
-    url: jdbc:mysql://WUNMEST.COM:3306/hp_auth
+    url: jdbc:mysql://WUNMEST.COM:3306/hp_auth?characterEncoding=utf-8
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password:
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
     #schema: classpath:db/schema.sql
     #data: classpath:db/data.sql
-  jpa:
-    show-sql: true
+mybatis:
+  type-aliases-package: in.abcn.hodgepodge.model.db
 ##########################################
 management:
   security:
