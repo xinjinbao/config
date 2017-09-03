@@ -17,3 +17,8 @@ zuul:
 #      path: /monitor/**
 #    tracker-server:
 #      path: /tracker/**
+spring:
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/static/view/, classpath:/static/
