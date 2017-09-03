@@ -18,3 +18,41 @@ security:
       access-token-uri: http://${auth-service.hostname}:${auth-service.port}${auth-service.context-path}/oauth/token
       grant-type: client_credentials
       scope: server
+#-------------------
+druid:
+  url: jdbc:mysql://121.42.176.5:3306/hodgepodge?characterEncoding=utf-8
+  driver-class: com.mysql.jdbc.Driver
+  username: root
+  password:
+  initial-size: 1
+  min-idle: 1
+  max-active: 20
+  test-on-borrow: true
+  max-wait: 60000
+  time-between-eviction-runs-millis: 60000
+  min-evictable-idle-time-millis: 300000
+  validation-query: SELECT 1 FROM DUAL
+  test-While-Idle: true
+  test-on-return: false
+  pool-prepared-statements: false
+  max-pool-prepared-statement-per-connection-size: 20
+  filters: stat,wall,log4j,config
+  connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;config.decrypt=true
+  monitor:
+    enabled: false
+    druid-stat-view: /druid/*
+    druid-web-stat-filter: /*
+    allow: 127.0.0.1,183.185.218.50
+    deny:
+    login-username:
+    login-password:
+    exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+    reset-enable: false
+mybatis:
+  type-aliases-package: in.abcn.hodgepodge.model.db
+  mapper-locations: classpath:mapper/*.xml
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
